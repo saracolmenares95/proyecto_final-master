@@ -1,0 +1,316 @@
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+    <div class="wrapper wrapper--w790">
+        <div class="card card-5">
+            <div class="card-heading">
+                <h2 class="title">CONTROL MEDICO CERTIFICADO POR ESPECIALISTAS</h2>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="Controlmedico" (ngSubmit)="enviardatos()">
+                    <div class="form-row">
+                        <div class="name">Paciente</div>
+                        <div class="value">
+                            <div class="row row-space">
+                                <div class="col-12 col-md-3 col-lg-3">
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" formControlName="nombre" type="text"
+                                            name="first_name">
+                                        <label class="label--desc">Nombres</label>
+                                        <span class="error"
+                                            *ngIf="Controlmedico.get('nombre')?.hasError('required') && Controlmedico.get('nombre')?.touched">Nombre
+                                            Obligatorio</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 col-lg-3">
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" formControlName="email" type="text"
+                                            name="last_name">
+                                        <label class="label--desc">correo</label>
+                                        <span class="error"
+                                            *ngIf="Controlmedico.get('email')?.hasError('required') && Controlmedico.get('email')?.touched">Correo
+                                            Obligatorio</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 col-lg-3">
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" formControlName="edad" type="text"
+                                            name="last_name">
+                                        <label class="label--desc">Edad</label>
+                                        <span class="error"
+                                            *ngIf="Controlmedico.get('edad')?.hasError('required') && Controlmedico.get('edad')?.touched">Obligatorio</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 col-lg-3">
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" formControlName="genero" type="text"
+                                            name="last_name">
+                                        <label class="label--desc">Genero</label>
+                                        <span class="error"
+                                            *ngIf="Controlmedico.get('genero')?.hasError('required') && Controlmedico.get('genero')?.touched">Genero
+                                            Obligatorio</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row" style="align-items: flex-start;">
+                        <div class="name">P/Informativo</div>
+                        <div class="value">
+                            <div class="row row-space">
+                                <div class="col-12 col-md-3 col-lg-3">
+                                    <div class="row">
+                                        <div class="col-12 col-md-12 col-lg-4"
+                                            style="display: flex; justify-content:space-evenly;  align-items: center;">
+                                            <div class="form-check form-check-inline ">
+                                                <input style="width: 15px;
+                                                height: 15px;" class="form-check-input" type="radio"
+                                                    formControlName="tipoD" id="inlineRadio1" value="TI">
+                                                <label class="form-check-label" for="inlineRadio1">T.I</label>
+                                            </div>
+                                            <div class="form-check form-check-inline ">
+                                                <input class="form-check-input" formControlName="tipoD" style="width: 15px;
+                                                height: 15px;" type="radio" value="CC" id="inlineRadio1">
+                                                <label class="form-check-label" for="inlineRadio1">C.C</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-8 col-lg-8">
+                                            <div class="input-group-desc">
+                                                <input  class="input--style-5" formControlName="documento" type="text"
+                                                    name="last_name">
+                                                <label class="label--desc">Numero de Documento</label>
+                                                <span class="error"
+                                                    *ngIf="Controlmedico.get('documento')?.hasError('required') && Controlmedico.get('documento')?.touched">Numero
+                                                    Obligatorio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 col-lg-3">
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" type="text" name="last_name">
+                                        <label class="label--desc">Estado Civil</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 col-lg-3">
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" type="text" name="last_name">
+                                        <label class="label--desc">Ocupacion</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 col-lg-3">
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" type="text" name="last_name">
+                                        <label class="label--desc">Direccion</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 col-lg-3">
+                                    <div class="input-group-desc my-5">
+                                        <input class="input--style-5" type="text" name="last_name">
+                                        <label class="label--desc">Numero Fijo</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 col-lg-3">
+                                    <div class="input-group-desc my-lg-5">
+                                        <input class="input--style-5" formControlName="celular" type="text"
+                                            name="last_name">
+                                        <label class="label--desc">Celular</label>
+                                        <span class="error"
+                                            *ngIf="Controlmedico.get('celular')?.hasError('required') && Controlmedico.get('celular')?.touched">Celular
+                                            Obligatorio</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 col-lg-3">
+                                    <div class="input-group-desc my-5">
+                                        <input class="input--style-5" type="text" name="last_name">
+                                        <label class="label--desc">Cuantos Hermanos tiene</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 col-lg-3">
+                                    <div class="input-group-desc my-5">
+                                        <input class="input--style-5"  type="text"
+                                            name="last_name">
+                                        <label class="label--desc">Comienzo Vida/S</label>
+                                        <span class="error"
+                                            *ngIf="Controlmedico.get('comienzo')?.hasError('required') && Controlmedico.get('comienzo')?.touched">Vida/S
+                                            Obligatorio</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">ipsControl</div>
+                        <div class="value">
+                            <div class="row row-space">
+                                <div class="col-12 col-md-3 col-lg-3">
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" type="text" name="first_name">
+                                        <label class="label--desc">Nombres </label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 col-lg-3">
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" type="text" name="first_name">
+                                        <label class="label--desc">Apellidos</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 col-lg-3">
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" type="text" name="first_name">
+                                        <label class="label--desc">Correo</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 col-lg-3">
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" type="text" name="first_name">
+                                        <label class="label--desc">Direccion</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Sintomas</div>
+                        <div class="value">
+
+                            <div class="row ">
+                                <div class="col-8">
+                                    <div class="input-group-desc">
+                                        <textarea class="input--style-5" formControlName="sintomas"
+                                            style="height: 200px;width: 100%;" name="area_code"></textarea>
+                                        <label class="label--desc">sintomas</label>
+                                        <span class="error"
+                                            *ngIf="Controlmedico.get('sintomas')?.hasError('required') && Controlmedico.get('sintomas')?.touched">
+                                            Sintomas Obligatorio</span>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="input-group-desc">
+                                        <textarea class="input--style-5" formControlName="tratamiento"
+                                            style="height: 200px;width: 92%;"></textarea>
+                                        <label class="label--desc">tratamiento</label>
+                                        <span class="error"
+                                            *ngIf="Controlmedico.get('tratamiento')?.hasError('required') && Controlmedico.get('tratamiento')?.touched">Tratamiento
+                                            Obligatorio</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Tipo</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <div class="rs-select2 js-select-simple select--no-search col-4">
+                                    <select name="subject">
+                                        <option disabled="disabled" selected="selected">--Seleccione--</option>
+                                        <option>Tipo 1</option>
+                                        <option>Tipo 2</option>
+                                        <option>Tipo 3</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                                <div class=" col-4 col-md-4 col-lg-2">
+                                    <div class="input-group-desc">
+                                        <input formControlName="medicamento1" class="input--style-5" type="text"
+                                            name="phone">
+                                        <label class="label--desc">medicamento uno</label>
+                                    </div>
+                                </div>
+                                <div class=" col-4 col-md-4 col-lg-2">
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" formControlName="medicamento2" type="text"
+                                            name="phone">
+                                        <label class="label--desc">medicamento dos (opcional)</label>
+                                    </div>
+                                </div>
+                                <div class=" col-4 col-md-4 col-lg-2">
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" formControlName="medicamento3" type="text"
+                                            name="phone">
+                                        <label class="label--desc">medicamento tres (opcional)</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row p-t-20">
+                        <label class="label label--block">Le gustaria ser un afiliado?</label>
+                        <div class="p-t-15">
+                            <label class="radio-container m-r-55">Si
+                                <input formControlName="afiliado" value="si" type="radio" checked="checked" >
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio-container">No
+                                <input formControlName="afiliado" value="no" type="radio" >
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <label *ngIf="Controlmedico.get('afiliado')?.hasError('required') && Controlmedico.get('afiliado')?.touched">afiliado</label>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" (click)="enviardatos()" data-bs-toggle="modal" data-bs-target="#staticBackdrop11" class="btn btn--radius-2 btn--red"
+                            [disabled]="Controlmedico.invalid" type="submit">Enviar Datos</button>
+
+                        <!-- Modal -->
+                        <div class="modal fade"  id="staticBackdrop11" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop1Label" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="background: royalblue">
+                                        <h5 class="modal-title text-center" style="font-weight: 800;font-size: 1.1rem;" id="staticBackdrop1Label">Control Medico
+                                            Especializado</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body" *ngFor="let ipsControl of objetoDeControlMedico">
+                                        <h2 class="text-center my-2 tratamientoH2">Hoja De tratamiento</h2>
+                                        <div class="row">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Señor</th>
+                                                        <th scope="col">Identificado Con </th>
+                                                        <th scope="col">Numero Identidad</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>{{ipsControl.nombre}}</td>
+                                                        <td>{{ipsControl.tipoD}}</td>
+                                                        <td>{{ipsControl.documento}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="col-12 text-center my-3 tratamiento">Tratamiento</div>
+                                            <div class="col-12 " style="text-align: center;"><textarea
+                                                    style="height: 150px; width: 100%;">{{ipsControl.tratamiento}}</textarea>
+                                            </div>
+                                            <h2 class="text-center medicamentos">Medicamientos a Tratar</h2>
+                                            <ol class="list-group list-group-numbered">
+                                                <li class="list-group-item">{{ipsControl.medicamento1}}</li>
+                                                <li class="list-group-item">{{ipsControl.medicamento2}}</li>
+                                                <li class="list-group-item">{{ipsControl.medicamento3}}</li>
+                                            </ol>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="modal-footer d-flex justify-content-between">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal" style="background: red;">Cerrar</button>
+                                        <button type="button" (click)="redirigir()" class="btn btn-primary"style="background: royalblue !important;">Enviar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

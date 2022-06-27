@@ -1,0 +1,34 @@
+.lineaAzul{
+    background-color:#1D70B7;
+    width: 100%;
+    height: 20px;
+}
+.lineaRoja{
+    background-color:#BD1222;
+    width: 100%;
+    height: 20px;
+}
+.btn{
+    background-color: #1D70B7;
+}
+.valoresRojo{
+    background-color: #BD1222;
+}
+.valoresAzul{
+    background-color: #1D70B7;
+}
+
+.bordeAzul{
+    border:#1D70B7;
+}
+.card{
+    background-color: #cff4fc4e;
+    border:none;
+}
+
+.imgNosotros {
+    height: 480px;
+    width: 100%;
+    object-fit: cover;
+}
+

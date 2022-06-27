@@ -1,0 +1,32 @@
+
+.espacio{
+    background-color: #1D70B7;
+    height: 20px;
+}
+
+.espacio2{
+height: 20px;
+background-color: #BD1222;
+}
+
+.espacio3{
+    background-color: #1D70B7;
+}
+
+.textos{
+font-size: 0.9rem;
+color: #fff;
+}
+
+.empresa{
+    filter: invert();
+}
+
+.fotos{
+object-fit: cover;
+}
+
+.logo{
+    width: 28%;
+    display: -webkit-inline-box;
+}

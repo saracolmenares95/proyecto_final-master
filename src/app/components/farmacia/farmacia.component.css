@@ -1,0 +1,20 @@
+.contenedor-plus{
+    background: rgb(15, 175, 12);
+    width: 40px;
+    height: 40px;
+    padding-top: 6px;
+    border-radius: 20px;
+}
+.contenedor-plus:hover{
+    background: yellowgreen;
+}
+.contenedor-plus1{
+    background: rgb(211, 26, 19);
+    width: 40px;
+    height: 40px;
+    padding-top: 6px;
+    border-radius: 20px;
+}
+.contenedor-plus1:hover{
+    background: rgb(230, 143, 12);
+}

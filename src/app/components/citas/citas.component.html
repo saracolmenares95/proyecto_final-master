@@ -1,0 +1,116 @@
+<div class="py-10 " style="background: #f0f0f0;">
+    <div class="container mx-auto">
+        <h1 class="font-black text-5xl text-center md:w-2/3 mx-auto">Seguimientos de tus Citas <span
+                class="text-indigo-600">IPS Unidos</span></h1>
+        <div class="mt-12 md:flex">
+            <div class="md:w-1/2 lg:w-2/5" style="margin-right: 40px;">
+                <h2 class="font-black text-3xl text-center">Agenda tu Cita</h2>
+                <p class="text-lg mt-5 text-center mb-10">
+                    Control medico de
+                    <span class="text-indigo-600 font-bold">Medicina General</span>
+                </p>
+
+                <form [formGroup]="ControlCitas" (ngSubmit)="enviarDatos()"
+                    class="bg-white shadow-md rounded-lg py-10 px-5 mb-10">
+                    <div class="mb-5">
+                        <label For="documento" class="block text-gray-700 uppercase font-bold">Numero de
+                            Documento</label>
+                        <input id="documento" formControlName="documento" type="text" placeholder="ej. 1005282300"
+                            class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" />
+                        <span class="error" *ngIf="ControlCitas.get('documento')?.hasError('maxlength')">numero
+                            invalido</span>
+                        <span class="error" *ngIf="ControlCitas.get('documento')?.hasError('minlength')">numero
+                            invalido</span>
+                        <span class="error"
+                            *ngIf="ControlCitas.get('documento')?.hasError('required') && ControlCitas.get('documento')?.touched">Numero
+                            de Documento Obligatorio</span>
+                    </div>
+                    <div class="mb-5">
+                        <label For="nombre" class="block text-gray-700 uppercase font-bold">Nombre Completo</label>
+                        <input id="nombre"  formControlName="nombre" type="text"
+                            placeholder="ej. Damon Rodriguez Salvatore"
+                            class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" />
+                        <span class="error"
+                            *ngIf="ControlCitas.get('nombre')?.hasError('required') && ControlCitas.get('nombre')?.touched">Nombre
+                            Obligatorio</span>
+                    </div>
+                    <div class="mb-5">
+                        <label For="email" class="block text-gray-700 uppercase font-bold">Email Contacto</label>
+                        <input id="email" formControlName="email" type="email"
+                            placeholder="ej. jsebg.ruedat23@gmail.com"
+                            class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" />
+                        <span class="error" *ngIf="ControlCitas.get('email')?.hasError('pattern')">Correo
+                            Invalido</span>
+                        <span class="error"
+                            *ngIf="ControlCitas.get('email')?.hasError('required') && ControlCitas.get('email')?.touched">Correo
+                            Obligatorio</span>
+                    </div>
+                    <div class="mb-5">
+                        <label For="fecha" class="block text-gray-700 uppercase font-bold">Fecha de la cita</label>
+                        <input id="fecha" formControlName="fecha" type="date"
+                            class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" />
+                        <span class="error"
+                            *ngIf="ControlCitas.get('fecha')?.hasError('required') && ControlCitas.get('fecha')?.touched">Fecha
+                            Obligatorio</span>
+                    </div>
+                    <div class="mb-5">
+                        <label htmlFor="sintomas" class="block text-gray-700 uppercase font-bold">Sintomas</label>
+                        <textarea #sintomas formControlName="sintomas"
+                            class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" id="sintomas"
+                            placeholder="Describe los sintomas"></textarea>
+                        <span class="error"
+                            *ngIf="ControlCitas.get('sintomas')?.hasError('required') && ControlCitas.get('sintomas')?.touched">Sintomas
+                            Obligatorio</span>
+                    </div>
+                    <input #registrarse class="btn bg-indigo-600 text-white w-full uppercase p-3 font-bold hover:bg-indigo-800"
+                        [disabled]="ControlCitas.invalid" value="Registrarse" type="submit"/>
+                </form>
+            </div>
+            <div class="md:w-1/2 lg:w-4/5 md:h-screen overflow-y-scroll">
+
+                <ng-template [ngIf]="pepe.length" [ngIfElse]="loading">
+                    <div class="lessons-list">
+                        <h2 class="font-black text-3xl text-center">ListadoPacientes</h2>
+                        <p class="text-xl mt-5 mb-10 text-center">Administra tus <span
+                                class="text-indigo-600 font-bold">Pacientes y
+                                Citas</span></p>
+                    </div>
+                </ng-template>
+
+                <div *ngFor="let control of pepe" class="m-3 bg-white shadow-md px-5 py-10 rounded-xl">
+                    <p class="font-bold mb-3 text-gray-700 uppercase">Documento:
+                        <span class="font-normal normal-case">{{control.documento}}</span>
+                    </p>
+                    <p class="font-bold mb-3 text-gray-700 uppercase">Nombre:
+                        <span class="font-normal normal-case">{{control.nombre}}</span>
+                    </p>
+                    <p class="font-bold mb-3 text-gray-700 uppercase">Email:
+                        <span class="font-normal normal-case">{{control.email}}</span>
+                    </p>
+                    <p class="font-bold mb-3 text-gray-700 uppercase">Fecha de la Cita:
+                        <span class="font-normal normal-case">{{control.fecha}}</span>
+                    </p>
+                    <p class="font-bold mb-3 text-gray-700 uppercase">Síntomas:
+                        <span class="font-normal normal-case">{{control.sintomas}}</span>
+                    </p>
+                    <div  class="flex justify-between mt-10">
+                        <button #boton #editar type="button"
+                            class="font-bold text-white bg-indigo-500 hover:bg-indigo-700 uppercase py-2 px-10 rounded-lg" (click)="Trayendoobjeto(control)">editar</button>
+                        <button type="button"
+                            class="font-bold text-white bg-red-500 hover:bg-red-700 uppercase py-2 px-10 rounded-lg"(click)="Elimiando(control.id)">eliminar</button>
+                    </div>
+                </div>
+                <ng-template #loading>
+                    <div>
+                        <h2 class="font-black text-3xl text-center">No hay citas</h2>
+                        <p class="text-xl mt-5 mb-10 text-center">Comienza agregando Citas
+                            <span class="text-indigo-600 font-bold">aparecerán en este lugar</span>
+                        </p>
+                    </div>
+                </ng-template>
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,169 @@
+.d-block{
+width: 130px;
+height: 450px;
+object-fit:cover;
+}
+
+.card-img-top
+{
+width: 100px;
+
+}
+
+.card-img-top2{
+    width: 100%;
+    object-fit: cover;
+}
+
+
+.card-img-top3
+{
+width: 90px;
+height: 90px;
+object-fit: cover;
+}
+
+.tarjeta1
+{
+width: 90%;
+background-color:#D6EAF8;
+border-width:3px;
+}
+
+.tarjeta2
+{
+width: 90%;
+background-color: #D4EFDF ;
+border-width:3px;
+}
+
+.tarjeta3
+{
+width: 90%;
+background-color:#FDEBD0;
+border-width:3px;
+}
+
+
+.carrucel{
+width: 100%;
+}
+
+.logo{
+width: 28%;
+display: -webkit-inline-box;
+}
+
+.espacio{
+background-color: #1D70B7;
+height: 20px;
+}
+
+.espacio2{
+height: 20px;
+background-color: #BD1222;
+}
+
+a:before {
+content: '';
+background: #1D70B7;
+display: block;
+position: absolute;
+bottom: -3px;
+left: 0;
+width: 0;
+height: 3px;
+}
+
+a:hover {
+background-position: 0;
+}
+
+a:hover::before {
+width: 100%;
+}
+
+a {
+background-image: linear-gradient(
+    to right,
+    #1D70B7,
+    #1D70B7 50%,
+    #000 50%
+);
+background-size: 200% 100%;
+background-position: -100%;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+transition: all 0.3s ease-in-out;
+}
+
+.imagen
+{
+height: 600px;
+}
+
+/* .total{
+position: relative;
+display: inline-block;
+text-align: center;
+} */
+
+.texto-encima{
+position: absolute;
+top: 290px;
+left: 55%;
+}
+
+.text:hover {
+color:#BD1222
+}
+
+.slogan{
+font-size: 1.2rem;
+}
+
+.imagen{
+width: 110%;
+}
+
+@media (max-width: 768px) {
+.tarjeta1{
+    width: 100% !important;
+    font-size: 0.9rem;
+}
+.tarjeta2
+{
+width: 100% !important;
+font-size: 0.9rem;
+}
+
+.tarjeta3
+{
+width: 100% !important;
+font-size: 0.9rem;
+}
+
+}
+
+.frase{
+    font-size: 1.1rem;
+    position: relative;
+    top: 15px;
+    height: 33px;
+}
+
+.carousel-indicators{
+    position: relative;
+    top: 16px;
+    background: #BD1222;
+    width: 100%;
+    margin: auto;
+}
+
+-fa-solid fa-angle-left{
+    font-size: 8rem; color:#ffffff
+}
+
+.fa-solid fa-angle-right{
+    font-size: 8rem;color:#ffffff
+}

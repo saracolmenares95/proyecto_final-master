@@ -1,0 +1,109 @@
+<div class="py-10" style="background: #f0f0f0">
+    <div class="container text-center">
+        <h1 class="font-black text-5xl text-center col-12 mx-auto">
+            Seguimientos de tus Pacientes
+            <span class="text-indigo-600">IPS Unidos</span>
+        </h1>
+        </div>
+        <div class="mt-12 container">
+            <div class="row">
+                <ng-template [ngIf]="citasPaciente.length" [ngIfElse]="loading">
+                    <div class="lessons-list col-12">
+                        <div class="row" >
+                            <div class="col-12">
+                                <h2 class="font-black text-3xl text-center">
+                                    Listado citas
+                                </h2>
+                                <p class="fs-5 mt-5 mb-10 text-center">
+                                    Administra tus
+                                    <span class="text-primary font-bold"
+                                        >Pacientes y Citas</span
+                                    >
+                                </p>
+                                </div>
+                                <div class="col-12 col-lg-4 col-md-4"*ngFor="let control of citasPaciente">
+                                    <div
+                                    class="card mb-5"
+                                >
+                                    <div class="card-body px-5 py-4 text-center  shadow-md">
+                                        <p
+                                            class="font-bold mb-3 text-gray-700 uppercase"
+                                        >
+                                            Documento:
+                                            <span class="font-normal normal-case">{{
+                                                control.documento
+                                            }}</span>
+                                        </p>
+                                        <p
+                                            class="font-bold mb-3 text-gray-700 uppercase"
+                                        >
+                                            Nombre:
+                                            <span class="font-normal normal-case">{{
+                                                control.nombre
+                                            }}</span>
+                                        </p>
+                                        <p
+                                            class="font-bold mb-3 text-gray-700 uppercase"
+                                        >
+                                            Email:
+                                            <span class="font-normal normal-case">{{
+                                                control.email
+                                            }}</span>
+                                        </p>
+                                        <p
+                                            class="font-bold mb-3 text-gray-700 uppercase"
+                                        >
+                                            Fecha de la Cita:
+                                            <span class="font-normal normal-case">{{
+                                                control.fecha
+                                            }}</span>
+                                        </p>
+                                        <p
+                                            class="font-bold mb-3 text-gray-700 uppercase"
+                                        >
+                                            Síntomas:
+                                            <span class="font-normal normal-case">{{
+                                                control.sintomas
+                                            }}</span>
+                                        </p>
+                                        <div
+                                            class="d-flex  mt-10 mb-3"
+                                        >
+                                        <div class="col-12">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <button type="button" (click)="tomando(control.id)" [routerLink]="['/datos']" class="btn btn-primary">Tomar cita</button>
+                                                </div>
+                                                <div class="col-6">
+                                                    <button type="button" (click)="Elimiando(control.id)" class="btn btn-danger">eliminar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </ng-template>
+
+
+
+                <ng-template #loading>
+                    <div>
+                        <h2 class="font-black text-3xl text-center">
+                            No hay citas
+                        </h2>
+                        <p class="text-xl mt-5 mb-10 text-center">
+                            Comienza agregando Citas
+                            <span class="text-indigo-600 font-bold"
+                                >aparecerán en este lugar</span
+                            >
+                        </p>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+

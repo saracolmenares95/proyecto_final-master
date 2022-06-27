@@ -1,0 +1,122 @@
+<footer class="footer text-center text-white mt-3">
+
+	<div class="container p-4">
+
+		<section class="mb-4">
+			<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
+			<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+			<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
+			<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+			<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
+		</section>
+
+
+
+		<section class="">
+			<form action="">
+				<div class="row d-flex justify-content-center">
+					<div class="col-auto">
+						<p class="pt-2">
+							<strong>Inscribete a nuestro boletín saludable</strong>
+						</p>
+					</div>
+					<div class="col-md-5 col-12">
+						<form [formGroup]="footerForm" >
+						<div class="form-outline form-white mb-5">
+							<input type="email" formControlName="correo" id="Suscribirse" class="form-control" placeholder="Correo electronico" />
+							<span class="text-danger fw-bold" *ngIf="footerForm.get('correo')?.hasError('pattern')">Correo invalido</span>
+							<span class="text-danger fw-bold" *ngIf="footerForm.get('correo')?.hasError('required') && footerForm.get('correo')?.touched">Correo obligatorio</span>
+						</div>
+					</form>
+					</div>
+					<div class="col-auto">
+						<button type="submit" class="btn btn-outline-light mb-4">Suscribirse</button>
+					</div>
+				</div>
+			</form>
+		</section>
+
+
+
+		<section class="">
+
+			<div class="row">
+
+				<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+					<h5 class="text-uppercase">UNIDOS IPS</h5>
+
+					<ul class="list-unstyled mb-0">
+						<li>
+							<a href="#!" class="text-white">Contacto</a>
+						</li>
+						<li>
+							<a href="#!" class="text-white">Empresas</a>
+						</li>
+						<li>
+							<a href="#!" class="text-white">Empleados</a>
+						</li>
+						<li>
+							<a href="#!" class="text-white">PQRs</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+					<h5 class="text-uppercase">Contactenos</h5>
+
+					<ul class="list-unstyled mb-0">
+						<li>
+							<p class="text-white mt-1 mb-1">Bogotá,Colombia</p>
+						</li>
+						<li>
+							<p class="text-white mt-1 mb-1">Av Sin fin # 159-05</p>
+						</li>
+						<li>
+							<p class="text-white mt-1 mb-1">+573124567766</p>
+						</li>
+						<li>
+							<a href="mailto:soporte24h@unidosips.com"
+								class="text-white mt-1 mb-1">soporte24h@unidosips.com</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+					<h5 class="text-uppercase">Enlaces saludables</h5>
+
+					<ul class="list-unstyled mb-0">
+						<li>
+							<a href="https://www.semana.com/vida-moderna/articulo/como-retomar-los-habitos-saludables-perdidos-durante-la-pandemia/202254/"
+								class="text-white">Hábitos saludables</a>
+						</li>
+						<li>
+							<a href="https://www.mayoclinic.org/es-es/healthy-lifestyle/fitness/in-depth/exercise/art-20048389"
+								class="text-white">Actividad fisica</a>
+						</li>
+						<li>
+							<a href="https://www.infobae.com/salud/2022/06/13/la-fda-aprobo-el-primer-tratamiento-sistemico-contra-la-alopecia-areata-de-que-se-trata-y-como-se-administra/"
+								class="text-white">Tratamiento alopecia</a>
+						</li>
+						<li>
+							<a href="https://www.minsalud.gov.co/salud/publica/HS/Paginas/que-es-alimentacion-saludable.aspx#:~:text=Generalizando%2C%20se%20puede%20decir%20que,%2C%20gestaci%C3%B3n%2C%20lactancia%2C%20desarrollo%20y"
+								class="text-white">Alimentación saludable</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+					<h5>"ESTAMOS UNIDOS POR TU SALUD"</h5>
+					<img class="logoFooter h-75 w-75" src="assets/img/logoUNIDOSsinfondo.png" alt="">
+				</div>
+
+			</div>
+
+		</section>
+
+	</div>
+
+	<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+		© 2022 UNIDOS IPS SAS
+	</div>
+
+</footer>

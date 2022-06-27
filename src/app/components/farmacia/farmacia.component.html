@@ -1,0 +1,106 @@
+<div class="container mt-4 mb-6">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="font-black text-5xl text-center md:w-2/3 mx-auto">Farmacia <span
+                    class="text-red-700"> Unidos IPS</span></h1>
+            <div class="mt-12 md:flex">
+            </div>
+            <div class="col-12">
+                <button (click)="resumenCompra()" id="btnCarritoNav" data-bs-toggle="modal" data-bs-target="#exampleModal2" class="btn btn-primary mb-4 mt-4">Carrito Resumen</button>
+            </div>
+            <!-- Modal -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModal2Label">Farmacia IPS Unidos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="resumenCompra">
+                    <h1>Resumen de compra</h1>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col" colspan="2">Precio</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Iva Agregado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productosCarrito">
+                            <tr *ngFor="let producto of carritoGlobal">
+                                <td>{{producto.medicamento}}</td>
+                                <td colspan="2">{{producto.precio}}</td>
+                                <td>{{producto.cantidad}}</td>
+                                <td>3900</td>
+                                <td>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h1>Precio Total: ${{preciototal}}</h1>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button"  class="btn btn-primary">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<ng-template  [ngIf]="afiliado == 'si'" [ngIfElse]="loading">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-6 col-lg-3 col-md-4" *ngFor="let obj of farmacia" >
+                <div class="card text-center mb-4"  style="width: 15rem;">
+                    <img src={{obj.imagen}} class="card-img-top text-center" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fs-5 text-center">{{obj.medicamento}}</h5>
+                        <p>Afiliado</p>
+                        <p class="card-text text-center fs-5 text-green-400"> $ {{obj.descuento_afiliado}}</p>
+                        <input  type="readonly"  value="" name={{obj._id}} id={{obj._id}} class="bg-slate-200 w-50 text-center fs-5" #input>
+                        <div class="d-flex justify-evenly mt-3">
+                            <div class="contenedor-plus1">
+                            <i class="fa-solid fa-minus fs-3 text-white " (click)="descontarProducto(obj)"></i>
+                        </div>
+                            <div class="contenedor-plus">
+                                <i class="fa-solid fa-plus fs-3  text-white" (click)="agregarproducto(obj)"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #loading>
+    <div class="col-12">
+        <div class="row">
+            <div class="col-6 col-lg-3 col-md-4" *ngFor="let obj of farmacia" >
+                <div class="card text-center mb-4"  style="width: 15rem;">
+                    <img src={{obj.imagen}} class="card-img-top text-center" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fs-5 text-center">{{obj.medicamento}}</h5>
+                        <p class="card-text text-center fs-5"> $ {{obj.precio}}</p>
+                        <input  type="readonly"  value="" name={{obj._id}} id={{obj._id}} class="bg-slate-200 w-50 text-center fs-5" #input>
+                        <div class="d-flex justify-evenly mt-3">
+                            <div class="contenedor-plus1">
+                            <i class="fa-solid fa-minus fs-3 text-white " (click)="descontarProducto(obj)"></i>
+                        </div>
+                            <div class="contenedor-plus">
+                                <i class="fa-solid fa-plus fs-3  text-white" (click)="agregarproducto(obj)"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+
+        </div>
+    </div>

@@ -1,0 +1,138 @@
+<nav class="navbarmenu navbar-expand-lg">
+    <div class="container d-flex">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            <i class="fa-solid fa-bars icononav"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <ng-template [ngIf]="VerificarIdentidad.length" [ngIfElse]="loading">
+                <ul class="navbar-nav me-auto mb-3 ms-4 mb-lg-0  menu">
+                    <li class="nav-item">
+                        <a class="inicio nav-link ps-3 pe-3 pt-1 pb-1" aria-current="page" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="citas nav-link ps-3 pe-3 pt-1 pb-1 ms-2" href="#" tabindex="-1"
+                            [routerLink]="['/citas']" aria-disabled="true">Citas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nosotros nav-link ps-3 pe-3 pt-1 pb-1 ms-2" href="#" tabindex="-1"
+                            [routerLink]="['/nosotros']" aria-disabled="true">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="empresas nav-link ps-3 pe-3 pt-1 pb-1 ms-2" href="#" tabindex="-1"
+                            [routerLink]="['/empresas']" aria-disabled="true">Empresas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="empresas nav-link ps-3 pe-3 pt-1 pb-1 ms-2" href="#" tabindex="-1"
+                            [routerLink]="['/farmacia']" aria-disabled="true">Farmacia</a>
+                    </li>
+                </ul>
+            </ng-template>
+            <ng-template #loading>
+                <ul class="navbar-nav me-auto mb-3 ms-4 mb-lg-0  menu">
+                    <li class="nav-item">
+                        <a class="inicio nav-link ps-3 pe-3 pt-1 pb-1" aria-current="page" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="registro nav-link ps-3 pe-3 pt-1 pb-1 ms-2" href="#" tabindex="-1"
+                            [routerLink]="['/registro']" aria-disabled="true">Registro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nosotros nav-link ps-3 pe-3 pt-1 pb-1 ms-2" href="#" tabindex="-1"
+                            [routerLink]="['/nosotros']" aria-disabled="true">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="empresas nav-link ps-3 pe-3 pt-1 pb-1 ms-2" href="#" tabindex="-1"
+                            [routerLink]="['/empresas']" aria-disabled="true">Empresas</a>
+                    </li>
+                </ul>
+            </ng-template>
+            <ng-template [ngIf]="VerificarIdentidad == 'Doctor Juan'">
+                <ul class="navbar-nav me-auto mb-3 ms-4 mb-lg-0  menu">
+                    <li class="nav-item">
+                        <a class="citas nav-link ps-3 pe-3 pt-1 pb-1 ms-2" href="#" tabindex="-1"
+                            [routerLink]="['/control']" aria-disabled="true">Control doctor</a>
+                    </li>
+                </ul>
+            </ng-template>
+
+        </div>
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background: royalblue">
+                    <h5 class="modal-title text-center" style="font-weight: 800;font-size: 1.1rem;" id="staticBackdropLabel">Control Medico
+                        Especializado</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body" *ngFor="let ipsControl of controlFarmacia">
+                    <h2 class="text-center my-2 tratamientoH2">Hoja De tratamiento</h2>
+                    <div class="row">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Señor</th>
+                                    <th scope="col">Identificado Con </th>
+                                    <th scope="col">Numero Identidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>{{ipsControl.nombre}}</td>
+                                    <td>{{ipsControl.tipoD}}</td>
+                                    <td>{{ipsControl.documento}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="col-12 text-center my-3 tratamiento">Tratamiento</div>
+                        <div class="col-12 " style="text-align: center;"><textarea
+                                style="height: 150px; width: 100%;">{{ipsControl.tratamiento}}</textarea>
+                        </div>
+                        <h2 class="text-center medicamentos">Medicamientos a Tratar</h2>
+                        <ol class="list-group list-group-numbered">
+                            <li class="list-group-item">{{ipsControl.medicamento1}}</li>
+                            <li class="list-group-item">{{ipsControl.medicamento2}}</li>
+                            <li class="list-group-item">{{ipsControl.medicamento3}}</li>
+                        </ol>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary"
+                        data-bs-dismiss="modal" #botonInicio style="background: red;">Cerrar</button>
+                    <button type="button" class="btn btn-primary" (click)="cerrar()" [routerLink]="['/farmacia']" style="background: royalblue !important;">Farmacia</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            <ng-template [ngIf]="VerificarIdentidad.length" >
+            <button  type="button" class="btn btn-primary position-relative" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop" style="color: #ffffff;
+            background-color: #1D70B7;
+            height: 50px;
+            margin-top: 10px;
+            margin-right: 10px;">
+                INBOX
+                <ng-template [ngIf]="controlFarmacia" >
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        1+
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+                </ng-template>
+            </button>
+        </ng-template>
+            <i class="localicacion fa-solid fa-location-dot mb-4 mt-4"></i>
+            <i class="telefono ms-2 fa-solid fa-phone mt-4 mb-4"></i>
+
+        </div>
+
+
+
+</nav>
